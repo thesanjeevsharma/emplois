@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row justify-content-center">
+<div *ngIf="userType === 'eProvider'">
+  <h2>COMPLETE YOUR PROFILE</h2>
+  <form [formGroup]="providerProfileForm" (submit)="onProviderProfileFormSubmit()">
+    <div class="form-group">
+      <label for="comapny">Company</label>
+      <input type="text" formControlName="company" class="form-control" id="company" aria-describedby="emailHelp" placeholder="XYZ Inc.">
+    </div>
+    <div class="form-group">
+      <label for="employeeCount">Employee Count</label>  
+      <input type="number" min="10" max="10000" step="50" formControlName="employeeCount" class="form-control" id="username" placeholder="25">
+    </div>
+    <div class="form-group">
+      <label for="established">Established in</label>
+      <input type="number" min="1800" minlength="4" maxlength="4" formControlName="established" class="form-control" id="password" placeholder="1836">
+    </div>
+    <div class="row" formGroupName="location">
+      <div class="col-4">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" formControlName="city" class="form-control" id="city" placeholder="Dehradun">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" formControlName="state" class="form-control" id="state" placeholder="Uttarakhand">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" formControlName="country" class="form-control" id="country" placeholder="India">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Tell us something about the company</label>
+      <textarea class="form-control" formControlName="about" id="exampleTextarea" rows="3"></textarea>
+    </div>
+    <button type="submit" [disabled]="providerProfileForm.invalid" class="btn btn-primary btn-block">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="userType === 'eSeeker'">
+    <h2>COMPLETE YOUR PROFILE</h2>
+    <form [formGroup]="seekerProfileForm" (submit)="onSeekeerProfileFormSubmit()">
+      <div formGroupName="name">
+          <div class="form-group">
+            <label for="first">First Name</label>
+            <input type="text" formControlName="first" class="form-control" id="first" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="last">Last Name</label>
+            <input type="text" formControlName="last" class="form-control" id="last" aria-describedby="emailHelp">
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" (change)="resumeUpload($event)" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+          </div>
+          <div class="input-group-append">
+            <span class="input-group-text" id="">Upload Resume</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="skills">Skills</label>
+        <input type="text" formControlName="skills" class="form-control" id="skills" aria-describedby="emailHelp">
+      </div>
+      <div class="row" formGroupName="location">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" formControlName="city" class="form-control" id="city" placeholder="Dehradun">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" formControlName="state" class="form-control" id="state" placeholder="Uttarakhand">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" formControlName="country" class="form-control" id="country" placeholder="India">
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="seekerProfileForm.invalid" class="btn btn-primary btn-block">Submit</button>
+    </form>
+</div>
+</div>
+</div>

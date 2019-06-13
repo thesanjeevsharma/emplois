@@ -1,0 +1,20 @@
+.jobs {
+    padding: 50px 0;
+
+    .job {
+        height: 230px;
+        width: 20rem;
+        float: left;
+        margin: 20px;
+
+        .skill{
+            background: #eee;
+            margin-right: 2px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 5px 1px #eee;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<div class="container jobs">
+  <h4>SEARCH RESULTS FOR '{{ query }}'</h4>
+  <div *ngFor="let job of jobs">
+  <div class="card bg-secondary job" (click)="openJob(job._id)">
+    <div class="card-header"><a routerLink="['/profile/provider/']">{{ job.providerID.company }}</a></div>
+    <div class="card-body">
+      <h6 class="card-title">{{ job.title }}</h6>
+      <p class="card-text">
+        <span class="skill" *ngFor="let skill of job['skills']">
+          {{ skill }}
+        </span>
+      </p>
+      <p class="card-text">
+        Rs.{{ job.salary.min }} - Rs.{{ job.salary.max }}
+      </p>
+      <p class="card-text">
+          <i class="fas fa-map-marker-alt"></i> {{ job.providerID.location.city }}, {{ job.providerID.location.state }}
+      </p>
+    </div>
+  </div>
+  </div>
+</div>

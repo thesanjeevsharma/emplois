@@ -1,0 +1,18 @@
+<div *ngIf="seekerData" class="profile container">
+    <div class="info">
+    <h2>{{ seekerData.name.first }} {{ seekerData.name.last }}</h2>
+    <p>{{ seekerData.location.city }}, {{ seekerData.location.state }}, {{ seekerData.location.country }} </p>
+    <h6>Key Skills</h6>
+    <p>
+      <span class="skill" *ngFor="let skill of seekerData['skills']">
+        {{ skill }}
+      </span>
+    </p>
+    </div>
+    <div class="resume">
+        <pdf-viewer src="http://localhost:3000/uploads/{{ seekerData.resume }}" 
+                    [render-text]="true"
+                    style="display: block;"
+        ></pdf-viewer>
+    </div>
+</div>

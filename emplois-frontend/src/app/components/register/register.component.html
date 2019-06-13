@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="col-6">
+    <form [formGroup]="registerForm" (submit)="onRegisterFormSubmit()">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="sherlock@interpol.com">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>  
+        <input type="text" formControlName="username" class="form-control" id="username" placeholder="sherlock">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password" placeholder="Sherlock1234!">
+      </div>
+      <div class="form-group">
+        <label>Which one is true for you?</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" formControlName="userType" class="form-check-input" name="userType" id="optionsRadios1" value="eSeeker" checked="">
+              I am looking for jobs.
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" formControlName="userType" class="form-check-input" name="userType" id="optionsRadios1" value="eProvider" checked="">
+              I am hiring.
+            </label>
+          </div>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-block">Register</button>
+    </form>
+    </div>
+  </div>
+</div>

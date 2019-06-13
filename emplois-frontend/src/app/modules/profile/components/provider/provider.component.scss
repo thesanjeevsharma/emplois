@@ -1,0 +1,50 @@
+.container {
+    padding: 50px 0;
+
+    .profile {
+        position: relative;
+
+        .info {
+            position: absolute;
+
+            p {
+                span {
+                    color: #111;
+                }
+            }
+        }
+        
+    }
+}
+
+.job{
+    height: 230px;
+    width: 20rem;
+    float: left;
+    margin: 20px;
+
+    .skill{
+        background: #eee;
+        margin-right: 2px;
+    }
+
+    &:hover {
+        box-shadow: 0 0 5px 1px #eee;
+        cursor: pointer;
+    }
+}
+
+.job-add {
+    transition: .2s ease;
+    
+    .add-more{
+        background: #ccc;
+        text-align: center;   
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.08);  
+    }
+}
+

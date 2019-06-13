@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="job" *ngIf="job">
+    <h2>{{ job.title }}</h2>
+    <h5>{{ job.providerID.company }}</h5>
+    <div class="jd">
+        <h6>Job Description</h6>
+        <p>{{ job.description }}</p>      
+    </div>
+    <div class="package">
+        <h6>Package</h6>
+        <p>Rs.{{ job.salary.min }} - Rs.{{ job.salary.max }}</p> 
+    </div>
+    <div class="skills">
+        <h6>Skills Required</h6>
+        <p>
+          <span class="skill" *ngFor="let skill of job['skills']">
+            {{ skill }}
+          </span>
+        </p>
+    </div>
+    <div class="location">
+      <h6>Location</h6>
+      <p> <i class="fas fa-map-marker-alt"></i> {{ job.providerID.location.city }}, {{ job.providerID.location.state }}, {{ job.providerID.location.country }}</p>
+    </div>
+    <div class="options" *ngIf="userType !== 'eProvider'">
+      <button class="btn btn-primary" (click)="apply()">Apply</button>
+    </div>
+  </div>
+  <div class="applicants" *ngIf="userType === 'eProvider'">
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Sr. No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">View</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active" *ngFor="let applicant of applicants; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ applicant.name.first }} {{ applicant.name.last }}</td>
+      <td><a routerLink="/profile/seeker/{{ applicant.username }}"><i class="far fa-eye"></i></a></td>
+      <td><i class="fas fa-check" (click)="removeApplicant()"></i><i class="fas fa-times" (click)="approveApplicant()"></i></td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+nav {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    background: hsla(240, 100%, 70%, 1);
+    color : #fff;
+
+    .brand-name {
+        
+    }
+
+    .nav-bar{
+        ul.nav-links {
+
+            float : right;
+            li {
+                float: left;
+                list-style-type: none;
+                cursor: pointer;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
+}
